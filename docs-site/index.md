@@ -10,6 +10,9 @@ hero:
     alt: webmcp.js logo
   actions:
     - theme: brand
+      text: View Demo
+      link: /demo
+    - theme: alt
       text: Get Started
       link: /guide/getting-started
     - theme: alt

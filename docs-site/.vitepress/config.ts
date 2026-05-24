@@ -8,6 +8,7 @@ export default defineConfig({
   themeConfig: {
     logo: "/webmcp_logo.png",
     nav: [
+      { text: "Demo", link: "/demo" },
       { text: "Guide", link: "/guide/getting-started" },
       { text: "API", link: "/reference/api" },
       { text: "Examples", link: "/guide/examples" },
@@ -17,6 +18,7 @@ export default defineConfig({
       {
         text: "Guide",
         items: [
+          { text: "Demo", link: "/demo" },
           { text: "Getting Started", link: "/guide/getting-started" },
           { text: "Core Concepts", link: "/guide/core-concepts" },
           { text: "Approvals", link: "/guide/approvals" },
