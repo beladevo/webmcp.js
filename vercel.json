@@ -1,0 +1,5 @@
+{
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm --filter @webmcp-js/docs-site build",
+  "outputDirectory": "docs-site/.vitepress/dist"
+}
