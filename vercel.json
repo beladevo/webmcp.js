@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm --filter \"webmcp-js-vanilla-example\" build -- --outDir ../../dist",
+  "buildCommand": "pnpm --filter \"@webmcp-js/core\" build && pnpm --filter \"@webmcp-js/docs-site\" build && cp -r docs-site/.vitepress/dist dist",
   "outputDirectory": "dist",
   "installCommand": "pnpm install"
 }
