@@ -8,7 +8,13 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   prettier,
   {
-    ignores: ["**/dist/**", "**/node_modules/**", "**/*.d.ts"]
+    ignores: [
+      "**/dist/**",
+      "**/node_modules/**",
+      "**/*.d.ts",
+      "docs-site/.vitepress/.temp/**",
+      "docs-site/.vitepress/cache/**"
+    ]
   },
   {
     files: ["**/*.{ts,tsx}"],
