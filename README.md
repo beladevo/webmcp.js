@@ -226,17 +226,6 @@ test("critical tool requires approval", async () => {
 
 The default adapter uses `navigator.modelContext.registerTool` when it exists. It does not create `navigator.modelContext`.
 
-If you choose to use a polyfill, initialize it before creating the webmcp.js instance:
-
-```ts
-import { initializeWebMCPPolyfill } from "@mcp-b/webmcp-polyfill";
-initializeWebMCPPolyfill();
-
-import { createWebMCP } from "@webmcp-js/core";
-```
-
-webmcp.js does not depend on the full MCP-B runtime by default.
-
 ## Security Rules
 
 - Validate every input.
