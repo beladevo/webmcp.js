@@ -1,5 +1,9 @@
 # webmcp.js
 
+<p align="center">
+  <img src="assets/webmcp_logo.png" alt="webmcp.js logo" width="220" />
+</p>
+
 TypeScript toolkit for exposing typed, validated, approval-aware WebMCP tools.
 
 webmcp.js is not an official W3C, Chrome, Google, Microsoft, MCP, or MCP-B project. WebMCP is an emerging browser API proposal. Names, availability, and runtime behavior may change.
@@ -21,6 +25,12 @@ It adds:
 - Test adapters and assertions
 
 Zod is only the developer-facing schema API used by this library. WebMCP tool registration uses JSON Schema-compatible data.
+
+## Architecture
+
+<p align="center">
+  <img src="assets/architecture.png" alt="webmcp.js architecture diagram" />
+</p>
 
 ## WebMCP Status
 
