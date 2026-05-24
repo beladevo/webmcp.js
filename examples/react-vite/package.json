@@ -1,0 +1,18 @@
+{
+  "name": "webmcp-js-react-vite-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.4.1",
+    "@webmcp-js/core": "workspace:*",
+    "@webmcp-js/react": "workspace:*",
+    "vite": "^6.3.5",
+    "zod": "^3.25.32",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}

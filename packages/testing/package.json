@@ -1,0 +1,26 @@
+{
+  "name": "@webmcp-js/testing",
+  "version": "0.1.0",
+  "description": "Testing utilities for webmcp.js tools and approval behavior.",
+  "type": "module",
+  "license": "MIT",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --sourcemap --clean",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@webmcp-js/core": "workspace:*"
+  }
+}

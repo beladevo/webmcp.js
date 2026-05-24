@@ -1,0 +1,14 @@
+{
+  "name": "webmcp-js-vanilla-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@webmcp-js/core": "workspace:*",
+    "vite": "^6.3.5",
+    "zod": "^3.25.32"
+  }
+}
