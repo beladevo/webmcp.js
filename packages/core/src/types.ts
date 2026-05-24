@@ -100,6 +100,8 @@ export interface RegisteredWebMCPTool {
 export interface CreateWebMCPOptions {
   appName?: string;
   debug?: boolean;
+  showSupportWebMCP?: boolean;
+  supportWebMCPBadgeText?: string;
   unavailable?: UnavailableBehavior;
   approval?: ApprovalConfig;
   audit?: AuditConfig;

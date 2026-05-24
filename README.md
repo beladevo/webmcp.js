@@ -43,6 +43,7 @@ import { z } from "zod";
 const mcp = createWebMCP({
   appName: "Storefront",
   debug: true,
+  showSupportWebMCP: true,
   unavailable: "warn"
 });
 
@@ -58,6 +59,8 @@ mcp.tool("products.search", {
 ```
 
 If `navigator.modelContext.registerTool` is available, the tool is registered with the native runtime. If it is unavailable, the local tool handle still exists for tests and progressive enhancement behavior.
+
+`showSupportWebMCP` defaults to `false`. When enabled in a browser, webmcp.js adds a small support badge to the page. The default badge text is `We support WebMCP`; override it with `supportWebMCPBadgeText`. Clicking the badge opens a panel with the app name, runtime availability, and the tools registered on the page.
 
 ## Register A Sensitive Tool
 
@@ -179,7 +182,7 @@ function ProductPage({ product }) {
 
 export function App() {
   return (
-    <WebMCPProvider appName="Storefront" debug approval={{ mode: "browser-dialog" }}>
+    <WebMCPProvider appName="Storefront" debug showSupportWebMCP approval={{ mode: "browser-dialog" }}>
       <ProductPage />
     </WebMCPProvider>
   );

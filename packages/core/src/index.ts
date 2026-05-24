@@ -4,6 +4,7 @@ export type * from "./types.js";
 
 import { createNativeAdapter } from "./adapter.js";
 import { decideApproval } from "./approval.js";
+import { createBadge } from "./badge.js";
 import { createLogger } from "./logger.js";
 import { toJsonSchema, validateInput } from "./schema.js";
 import type {
@@ -25,6 +26,14 @@ export function createWebMCP(options: CreateWebMCPOptions = {}): WebMCPInstance 
   const unavailable = options.unavailable ?? "warn";
   const logger = createLogger(options.debug);
   const tools = new Map<string, RegisteredToolHandle>();
+  const badge = options.showSupportWebMCP
+    ? createBadge({
+        ...(options.appName ? { appName: options.appName } : {}),
+        text: options.supportWebMCPBadgeText ?? "We support WebMCP",
+        isRuntimeAvailable: () => adapter.isAvailable(),
+        listTools: () => [...tools.values()]
+      })
+    : undefined;
 
   function redact(input: unknown, event: Omit<AuditEvent, "input">) {
     return options.audit?.redact ? options.audit.redact(input, event) : "[redacted]";
@@ -206,6 +215,7 @@ export function createWebMCP(options: CreateWebMCPOptions = {}): WebMCPInstance 
       }
     };
     tools.set(name, handle as RegisteredToolHandle);
+    badge?.update();
 
     logger.debug(`Registering tool ${name}.`, { risk });
     if (adapter.isAvailable()) {
@@ -228,6 +238,7 @@ export function createWebMCP(options: CreateWebMCPOptions = {}): WebMCPInstance 
 
   async function unregister(name: string) {
     tools.delete(name);
+    badge?.update();
     if (adapter.isAvailable()) {
       await adapter.unregisterTool?.(name);
     }

@@ -10,6 +10,7 @@ const cart: Array<{ productId: string; quantity: number }> = [];
 
 const mcp = createWebMCP({
   appName: "webmcp.js Vanilla Store",
+  showSupportWebMCP: true,
   debug: true,
   unavailable: "warn",
   approval: {
