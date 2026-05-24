@@ -34,4 +34,5 @@ jobs:
       - run: pnpm --filter @webmcp-js/core test
 
       - name: Publish @webmcp-js/core
-        run: npm publish --workspace @webmcp-js/core
+        run: npm publish
+        working-directory: packages/core
