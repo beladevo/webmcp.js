@@ -1,13 +1,5 @@
 {
-  "framework": null,
-  "installCommand": "pnpm install",
-  "buildCommand": "pnpm --filter @webmcp-js/core build && pnpm --filter @webmcp-js/docs-site build",
-  "outputDirectory": "docs-site/.vitepress/dist",
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/demo",
-      "permanent": false
-    }
-  ]
+  "buildCommand": "pnpm -r --filter \"./packages/**\" build && pnpm --filter \"webmcp-js-vanilla-example\" build",
+  "outputDirectory": "examples/vanilla/dist",
+  "installCommand": "pnpm install"
 }
