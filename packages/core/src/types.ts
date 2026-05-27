@@ -47,6 +47,7 @@ export type ApprovalConfig = ApprovalSettings &
   (
     | { mode?: undefined }
     | { mode: "browser-dialog" }
+    | { mode: "built-in" }
     | { mode: "custom"; approve: ApprovalProvider }
     | { mode: "none" }
   );
@@ -92,6 +93,7 @@ export interface WebMCPAdapter {
 export interface RegisteredWebMCPTool {
   name: string;
   description: string;
+  risk: ToolRisk;
   inputSchema?: unknown;
   outputSchema?: unknown;
   execute: (input: unknown) => Promise<ToolResult>;

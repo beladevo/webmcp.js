@@ -1,9 +1,12 @@
 export { createNativeAdapter } from "./adapter.js";
 export { matchesToolName, decideApproval } from "./approval.js";
+export { createDevAdapter } from "./dev-adapter.js";
+export { showApprovalDialog } from "./approval-dialog.js";
 export type * from "./types.js";
 
 import { createNativeAdapter } from "./adapter.js";
 import { decideApproval } from "./approval.js";
+import { showApprovalDialog } from "./approval-dialog.js";
 import { createBadge } from "./badge.js";
 import { createLogger } from "./logger.js";
 import { toJsonSchema, validateInput } from "./schema.js";
@@ -82,19 +85,30 @@ export function createWebMCP(options: CreateWebMCPOptions = {}): WebMCPInstance 
       };
     }
 
-    const accepted =
-      provider.mode === "custom"
-        ? await provider.approve({
-            tool: request.name,
-            description: request.description,
-            input: request.input,
-            risk: request.risk,
-            reason: request.reason
-          })
-        : typeof globalThis.confirm === "function" &&
-          globalThis.confirm(
-            `Allow ${request.name} to run?\n\n${request.description}\n\n${request.reason}`
-          );
+    let accepted: boolean;
+    if (provider.mode === "custom") {
+      accepted = await provider.approve({
+        tool: request.name,
+        description: request.description,
+        input: request.input,
+        risk: request.risk,
+        reason: request.reason
+      });
+    } else if (provider.mode === "built-in") {
+      accepted = await showApprovalDialog({
+        tool: request.name,
+        description: request.description,
+        input: request.input,
+        risk: request.risk,
+        reason: request.reason
+      });
+    } else {
+      accepted =
+        typeof globalThis.confirm === "function" &&
+        globalThis.confirm(
+          `Allow ${request.name} to run?\n\n${request.description}\n\n${request.reason}`
+        );
+    }
 
     if (!accepted) {
       return {
@@ -200,6 +214,7 @@ export function createWebMCP(options: CreateWebMCPOptions = {}): WebMCPInstance 
     const webmcpTool: RegisteredWebMCPTool = {
       name,
       description: definition.description,
+      risk,
       inputSchema,
       outputSchema,
       execute

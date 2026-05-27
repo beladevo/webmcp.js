@@ -1,0 +1,56 @@
+{
+  "name": "@webmcp-js/nextjs",
+  "version": "0.1.0",
+  "description": "Next.js bindings for webmcp.js — re-exports @webmcp-js/react with 'use client' boundary.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "webmcp",
+    "mcp",
+    "nextjs",
+    "next.js",
+    "react",
+    "browser-ai",
+    "agent-tools",
+    "typescript"
+  ],
+  "homepage": "https://github.com/beladevo/webmcp.js#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beladevo/webmcp.js.git",
+    "directory": "packages/nextjs"
+  },
+  "bugs": {
+    "url": "https://github.com/beladevo/webmcp.js/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@webmcp-js/react": "workspace:*"
+  },
+  "peerDependencies": {
+    "next": ">=13.0.0",
+    "react": ">=18.2.0"
+  },
+  "devDependencies": {
+    "react": "^19.1.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  }
+}
