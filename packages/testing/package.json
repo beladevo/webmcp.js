@@ -1,6 +1,6 @@
 {
   "name": "@webmcp-js/testing",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "Testing utilities for webmcp.js tools and approval behavior.",
   "type": "module",
   "license": "MIT",

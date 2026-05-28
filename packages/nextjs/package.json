@@ -1,6 +1,6 @@
 {
   "name": "@webmcp-js/nextjs",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "Next.js bindings for webmcp.js — re-exports @webmcp-js/react with 'use client' boundary.",
   "type": "module",
   "license": "MIT",

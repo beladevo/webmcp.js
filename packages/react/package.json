@@ -1,6 +1,6 @@
 {
   "name": "@webmcp-js/react",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "React bindings for webmcp.js.",
   "type": "module",
   "license": "MIT",
